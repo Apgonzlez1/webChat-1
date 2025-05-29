@@ -6,21 +6,20 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background: #43a8f0;
-    color: #fff;
-    padding: 7px;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-}
-
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
-    cursor: pointer;
+    background: #FFD600;
+    color: #000;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .btn {
@@ -30,63 +29,27 @@ header {
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 1rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    color: var(--btn-color);
-    background-color: var(--btn-bg);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
 }
 
-.btn:hover {
-    color: var(--btn-hover-color);
-    background-color: var(--btn-hover-bg);
-    border-color: var(--btn-hover-border-color);
+.btn.primary {
+    color: #fff;
+    background-color: #43a8f0;
+    border-color: #43a8f0;
 }
 
-.btn:focus {
-    color: var(--btn-hover-color);
-    background-color: var(--btn-hover-bg);
-    border-color: var(--btn-hover-border-color);
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(var(--btn-focus-shadow-rgb), .5);
+.btn.primary:hover {
+    background-color: #116bf0;
+    border-color: #0a58ca;
+    color: #fff;
 }
 
-.btn:active {
-    color: var(--btn-active-color);
-    background-color: var(--btn-active-bg);
-    border-color: var(--btn-active-border-color);
-}
-
-.primary {
-    --btn-color: #fff;
-    --btn-bg: #43a8f0;
-    --btn-border-color: #43a8f0;
-    --btn-hover-color: #fff;
-    --btn-hover-bg: #116bf0;
-    --btn-hover-border-color: #0a58ca;
-    --btn-focus-shadow-rgb: 49,132,253;
-    --btn-active-color: #fff;
-    --btn-active-bg: #0a58ca;
-    --btn-active-border-color: #0a53be;
-    --btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --btn-disabled-color: #fff;
-    --btn-disabled-bg: #0d6efd;
-    --btn-disabled-border-color: #0d6efd;
-}
-
-.secondary {
-    --btn-color: #fff;
-    --btn-bg: #7C4DFF;
-    --btn-border-color: #7C4DFF;
-    --btn-hover-color: #fff;
-    --btn-hover-bg: #8356fd;
-    --btn-hover-border-color: #8356fd;
-    --btn-focus-shadow-rgb: 131,83,256;
-    --btn-active-color: #fff;
-    --btn-active-bg: #8356fd;
-    --btn-active-border-color: #8356fd;
-    --btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --btn-disabled-color: #fff;
-    --btn-disabled-bg: #8356fd;
-    --btn-disabled-border-color: #8356fd;
+.btn.primary:active {
+    background-color: #0a58ca;
+    border-color: #0a53be;
+    color: #fff;
 }
 
 .input-group {
@@ -99,25 +62,136 @@ input {
     outline: none;
     padding: 10px;
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+    background-color: #2c2c2c;
+    color: #fff;
 }
 
 .card {
-    box-shadow: 0 0 4px 0 rgb(0 0 0 / 8%), 0 2px 4px 0 rgb(0 0 0 / 12%);
-    border-radius: 3px;
-    background: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+    border-radius: 12px;
+    background: #1e1e1e;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.image-container {
+.button-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 10px;
+}
+.message .image-container {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.image-container img {
-    display: inline-block;
-    width: 100%;
+.message .image-container img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
 }
+.message.user .message-body {
+    background-color: #FFD600;  /* Amarillo brillante para tus mensajes */
+    color: #000;
+    align-self: flex-end;
+    border-radius: 12px 12px 0 12px; /* Bordes redondeados para que se vea estilo chat */
+}
+
+.message.other .message-body {
+    background-color: #2C2C2C; /* Gris oscuro para mensajes de otros */
+    color: #E0E0E0;
+    align-self: flex-start;
+    border-radius: 12px 12px 12px 0;
+}
+/* Mensaje base */
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.message .image-container {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message .image-container img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.message .message-body {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 75%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.user .message-body {
+  background-color: #ffd600;
+  color: #000;
+  border-radius: 12px 12px 0 12px;
+}
+
+.message.other .message-body {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border-radius: 12px 12px 12px 0;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.user-info {
+    display: flex;
+    justify-content: space-between;  /* separa el nombre y la hora */
+    align-items: center;
+    margin-bottom: 4px;
+    padding-right: 5px;
+}
+
+
+.username {
+    margin-right: 15px;
+    color: #ffd600;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95rem;
+}
+
+.time {
+    color: #888;
+    font-style: italic;
+    font-size: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
