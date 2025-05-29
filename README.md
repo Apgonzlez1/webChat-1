@@ -47,8 +47,7 @@ Crear una aplicación de chat funcional usando **Node.js**, **Socket.io**, **Boo
 ### Envío de mensaje propio  
 ![Mensaje propio](capturas/mensaje_propio.png)
 
-### Mensaje de otro usuario  
-![Mensaje ajeno](capturas/mensaje_otro.png)
+
 
 ---
 
